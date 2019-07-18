@@ -1,0 +1,25 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2019 Xiaobo Tian
+
+USE_PROCD=1
+
+START=65
+STOP=10
+
+PROG=/usr/sbin/pdnsd
+CONFFILE=/etc/pdnsd.conf
+CACHEDIR=/tmp/pdnsd
+CACHEFILE=$CACHEDIR/pdnsd.cache
+
+start_service() {
+	if [ ! -d "$CACHEDIR" ]; then
+		mkdir -p $CACHEDIR
+		chown -R nobody:nogroup $CACHEDIR
+	fi
+	procd_open_instance
+	procd_set_param command "$PROG" -c "$CONFFILE"
+	procd_set_param limits nofile=4096
+	procd_set_param stdout 1
+	procd_set_param stderr 1
+	procd_close_instance
+}
