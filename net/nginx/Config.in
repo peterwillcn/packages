@@ -13,7 +13,7 @@ config NGINX_SSL
 	prompt "Enable SSL module"
 	help
 		Enable HTTPS/SSL support.
-	default n
+	default y
 
 config NGINX_DAV
 	bool
@@ -41,7 +41,7 @@ config NGINX_STUB_STATUS
 	prompt "Enable stub status module"
 	help
 		Enable the stub status module which gives some status from the server.
-	default n
+	default y
 
 config NGINX_HTTP_CHARSET
 	bool
@@ -76,7 +76,7 @@ config NGINX_HTTP_AUTH_BASIC
 config NGINX_HTTP_AUTH_REQUEST
 	bool
 	prompt "Enable HTTP auth request module"
-	default n
+	default y
 
 config NGINX_HTTP_AUTOINDEX
 	bool
@@ -182,7 +182,7 @@ config NGINX_HTTP_CACHE
 config NGINX_HTTP_V2
 	bool
 	prompt "Enable HTTP_V2 module"
-	default n
+	default y
 
 config NGINX_PCRE
 	bool
@@ -202,38 +202,38 @@ config NGINX_LUA
 config NGINX_HTTP_REAL_IP
 	bool
 	prompt "Enable HTTP real ip module"
-	default n
+	default y
 
 config NGINX_HTTP_SECURE_LINK
 	bool
 	prompt "Enable HTTP secure link module"
 	default n
-	
+
 config NGINX_HTTP_SUB
 	bool
 	prompt "Enable HTTP sub module"
-	default n
-	
+	default y
+
 config NGINX_HEADERS_MORE
 	bool
 	prompt "Enable Headers_more module"
 	help
 		Set and clear input and output headers...more than "add"!
 	default y
-	
+
 config NGINX_HTTP_BROTLI
 	bool
 	prompt "Enable Brotli compression module"
 	help
 		Add support for brotli compression module.
-	default n
+	default y
 
 config NGINX_STREAM_CORE_MODULE
 	bool
 	prompt "Enable stream support"
 	help
 		Add support for NGINX request streaming.
-	default n
+	default y
 
 config NGINX_STREAM_SSL_MODULE
 	bool
@@ -241,7 +241,7 @@ config NGINX_STREAM_SSL_MODULE
 	depends on NGINX_STREAM_CORE_MODULE
 	help
 		Add support for NGINX request streaming with SSL/TLS termination.
-	default n
+	default y
 
 config NGINX_STREAM_SSL_PREREAD_MODULE
 	bool
@@ -249,7 +249,7 @@ config NGINX_STREAM_SSL_PREREAD_MODULE
 	depends on NGINX_STREAM_CORE_MODULE
 	help
 		Add support for NGINX request streaming using information from the ClientHello message without terminating SSL/TLS.
-	default n
+	default y
 
 config NGINX_RTMP_MODULE
 	bool
